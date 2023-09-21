@@ -1,4 +1,4 @@
-FROM ubuntu:23.04
+FROM ubuntu:22.10
 
 LABEL org.opencontainers.image.authors="René Schubotz"
 LABEL org.opencontainers.image.source="https://github.com/rmrschub/aetna-containers/"
@@ -38,7 +38,7 @@ ARG HOME
 
 ENV NB_USER ${NB_USER:-jovyan}
 ENV NB_GROUP ${NB_GROUP:-users}
-ENV NB_UID ${NB_UID:-10000}
+ENV NB_UID ${NB_UID:-1000}
 ENV NB_PREFIX ${NB_PREFIX:-/}
 ENV S6_CMD_WAIT_FOR_SERVICES_MAXTIME 0
 ENV HOME /home/$NB_USER
@@ -102,12 +102,20 @@ RUN set -x; \
     chmod +x /usr/local/bin/kubectl; 
 
 # Install python packages from requirements.txt
-COPY requirements.txt /tmp/requirements.txt
 RUN set -ex; \
     \
-    pipx ensurepath; \
-    pipx install -r /tmp/requirements.txt; \
-    rm -f /tmp/requirements.txt
+    apt update \
+    && apt upgrade;\
+    add-apt-repository ppa:deadsnakes/ppa -y; \
+    apt update; \
+    apt install -y python3.10-full; \
+    apt install python3-pip; \
+    python3 -m pip install --upgrade pip; \
+    pip --version;
+
+COPY requirements.txt /tmp/requirements.txt
+RUN pip install -r /tmp/requirements.txt; \
+    rm -f /tmp/requirements.txt;  
 
 # Install VS Code Server
 ARG CODESERVER_VERSION=v4.16.1
