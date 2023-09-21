@@ -106,6 +106,7 @@ RUN set -ex; \
     \
     apt update \
     && apt upgrade -y ;\
+    apt-get install -y software-properties-common;\
     add-apt-repository ppa:deadsnakes/ppa -y; \
     apt update; \
     apt install -y python3.10-full; \
