@@ -1,4 +1,4 @@
-FROM ubuntu:22.10
+FROM ubuntu:22.04
 
 LABEL org.opencontainers.image.authors="René Schubotz"
 LABEL org.opencontainers.image.source="https://github.com/rmrschub/aetna-containers/"
