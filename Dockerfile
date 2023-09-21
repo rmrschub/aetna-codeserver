@@ -102,6 +102,8 @@ RUN set -x; \
     chmod +x /usr/local/bin/kubectl; 
 
 # Install python packages from requirements.txt
+ENV DEBIAN_FRONTEND="noninteractive" 
+ENV TZ="Europe/Berlin"
 RUN set -ex; \
     \
     apt update \
