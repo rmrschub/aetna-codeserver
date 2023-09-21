@@ -38,7 +38,7 @@ ARG HOME
 
 ENV NB_USER ${NB_USER:-jovyan}
 ENV NB_GROUP ${NB_GROUP:-users}
-ENV NB_UID ${NB_UID:-1000}
+ENV NB_UID ${NB_UID:-10000}
 ENV NB_PREFIX ${NB_PREFIX:-/}
 ENV S6_CMD_WAIT_FOR_SERVICES_MAXTIME 0
 ENV HOME /home/$NB_USER
@@ -105,9 +105,9 @@ RUN set -x; \
 COPY requirements.txt /tmp/requirements.txt
 RUN set -ex; \
     \
-    python3 -m pip install --user pipx && \
-    python3 -m pipx ensurepath && \
-    python3 -m pip install --user --upgrade pipx && \
+    python -m pip install --user pipx && \
+    python -m pipx ensurepath && \
+    python -m pip install --user --upgrade pipx && \
 
     pipx install -r /tmp/requirements.txt; \
     rm -f /tmp/requirements.txt
