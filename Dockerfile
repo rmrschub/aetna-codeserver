@@ -96,7 +96,7 @@ RUN set -x; \
 COPY requirements.txt /tmp/requirements.txt
 RUN set -ex; \
     \
-    python3 -m pip install -r /tmp/requirements.txt; \
+    pip3 install -r /tmp/requirements.txt; \
     rm -f /tmp/requirements.txt
 
 # Install VS Code Server
