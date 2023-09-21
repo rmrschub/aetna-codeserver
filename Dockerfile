@@ -105,11 +105,11 @@ RUN set -x; \
 RUN set -ex; \
     \
     apt update \
-    && apt upgrade;\
+    && apt upgrade -y ;\
     add-apt-repository ppa:deadsnakes/ppa -y; \
     apt update; \
     apt install -y python3.10-full; \
-    apt install python3-pip; \
+    apt install -y python3-pip; \
     python3 -m pip install --upgrade pip; \
     pip --version;
 
