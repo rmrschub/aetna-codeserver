@@ -18,8 +18,4 @@ unzip
 vim
 wget
 zip
-python3-full
-python3-distutils 
-python3-pip 
-python3-apt
 apt-transport-https

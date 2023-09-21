@@ -54,6 +54,15 @@ RUN apt update -yq && \
     rm -f /tmp/packages.txt; \
     rm -rf /var/lib/apt/lists 
 
+# https://pythonspeed.com/articles/externally-managed-environment-pep-668/
+# https://github.com/FNNDSC/ubuntu-python3/blob/master/Dockerfile
+RUN apt-get update \
+  && apt-get install -y python3-pip python3-dev \
+  && cd /usr/local/bin \
+  && ln -s /usr/bin/python3 python \
+  && pip3 --no-cache-dir install --upgrade pip \
+  && rm -rf /var/lib/apt/lists/*
+
 # Install Github CLI
 RUN type -p curl >/dev/null || (sudo apt update && sudo apt install curl -y); \
     curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
