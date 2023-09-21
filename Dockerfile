@@ -105,10 +105,7 @@ RUN set -x; \
 COPY requirements.txt /tmp/requirements.txt
 RUN set -ex; \
     \
-    python -m pip install --user pipx && \
-    python -m pipx ensurepath && \
-    python -m pip install --user --upgrade pipx && \
-
+    pipx ensurepath; \
     pipx install -r /tmp/requirements.txt; \
     rm -f /tmp/requirements.txt
 

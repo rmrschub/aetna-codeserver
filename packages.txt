@@ -19,3 +19,4 @@ vim
 wget
 zip
 apt-transport-https
+pipx
