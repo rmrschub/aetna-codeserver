@@ -1,0 +1,14 @@
+#!/usr/bin/with-contenv bash
+set -eo pipefail
+
+message() {
+    echo >&2 "[01-copy-tmp-home] $*"
+}
+
+message "EUID=$EUID"
+
+set -x
+cp -r -n /tmp_home/* /home/ || true;
+
+set +x
+message "Done"

@@ -1,0 +1,49 @@
+# Basic packages 
+oauth2client
+py-cpuinfo
+protobuf
+psutil
+kubernetes
+pyyaml
+python-box
+ruamel.yaml
+
+# Scientific computing packages
+numpy
+numexpr
+scipy 
+sympy
+deap
+
+# Imaging packages
+Pillow
+opencv-python
+
+# Visualization packages
+matplotlib
+graphviz
+
+# Data science packages
+pandas
+seaborn
+dvc
+dvclive
+kaggle
+
+# IDE packages
+ipywidgets
+jupyterlab
+
+# AI/ML packages
+scikit-learn
+scikit-image
+tensorflow
+tensorflow-hub
+tensorflow-model-optimization
+tensorflow-datasets
+tensorflow-probability
+torch
+torchvision
+torchaudio
+kornia        
+fastai
