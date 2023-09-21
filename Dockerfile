@@ -105,7 +105,11 @@ RUN set -x; \
 COPY requirements.txt /tmp/requirements.txt
 RUN set -ex; \
     \
-    pip3 install -r /tmp/requirements.txt; \
+    python3 -m pip install --user pipx && \
+    python3 -m pipx ensurepath && \
+    python3 -m pip install --user --upgrade pipx && \
+
+    pipx install -r /tmp/requirements.txt; \
     rm -f /tmp/requirements.txt
 
 # Install VS Code Server
