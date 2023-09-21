@@ -18,4 +18,5 @@ unzip
 vim
 wget
 zip
+python3
 apt-transport-https
