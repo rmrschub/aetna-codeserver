@@ -1,6 +1,6 @@
 # aetna-codeserver
 
-aetna-codeserver is an ubuntu:22.04 container that which comes pre-installed with 
+aetna-codeserver is an ubuntu:22.04 container that comes pre-installed with 
 - Python 3.10.12
 - kubectl
 - GitHub CLI
