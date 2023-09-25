@@ -32,7 +32,6 @@ kaggle
 
 # IDE packages
 ipywidgets
-jupyterlab
 
 # AI/ML packages
 scikit-learn
